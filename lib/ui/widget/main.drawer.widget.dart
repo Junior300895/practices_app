@@ -11,25 +11,25 @@ class MainDrawer extends StatelessWidget {
       {
         "title": "Home",
         "route": "/",
-        "leadindIcon": Icons.home,
+        "leadingIcon": Icons.home,
         "trailingIcon": Icons.arrow_forward
       },
       {
         "title": "Counter Stful",
-        "route": "/",
-        "leadindIcon": Icons.event,
+        "route": "/counter1",
+        "leadingIcon": Icons.event,
         "trailingIcon": Icons.arrow_forward
       },
       {
         "title": "Counter Bloc",
-        "route": "/",
-        "leadindIcon": Icons.timer,
+        "route": "/counter2",
+        "leadingIcon": Icons.timer,
         "trailingIcon": Icons.arrow_forward
       },
       {
         "title": "Git users",
-        "route": "/",
-        "leadindIcon": Icons.person,
+        "route": "/users",
+        "leadingIcon": Icons.person,
         "trailingIcon": Icons.arrow_forward
       },
     ];
@@ -39,47 +39,23 @@ class MainDrawer extends StatelessWidget {
         children: [
           const MainDrawerHeader(),
           Expanded(
-            child: ListView(
-              children: [
-                DrawerItem(
-                  title: "HOME",
-                  leadingIcon: Icons.home,
-                  trailingIcon: Icons.arrow_forward,
-                  onAction: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, "/");
+              child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return DrawerItem(
+                        title: menus[index]["title"],
+                        leadingIcon: menus[index]["leadingIcon"],
+                        trailingIcon: menus[index]["trailingIcon"],
+                        onAction: () {
+                          Navigator.pop(context);
+                          Navigator.pushNamed(context, menus[index]["route"]);
+                        });
                   },
-                ),
-                DrawerItem(
-                  title: "Counter Stateful",
-                  leadingIcon: Icons.home,
-                  trailingIcon: Icons.arrow_forward,
-                  onAction: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, "/counter1");
+                  separatorBuilder: (context, index) {
+                    return const Divider(
+                      height: 6,
+                    );
                   },
-                ),
-                DrawerItem(
-                  title: "Counter Bloc",
-                  leadingIcon: Icons.home,
-                  trailingIcon: Icons.arrow_forward,
-                  onAction: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, "/counter2");
-                  },
-                ),
-                DrawerItem(
-                  title: "Git Users",
-                  leadingIcon: Icons.home,
-                  trailingIcon: Icons.arrow_forward,
-                  onAction: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, "/users");
-                  },
-                )
-              ],
-            ),
-          )
+                  itemCount: menus.length))
         ],
       ),
     );
