@@ -9,7 +9,7 @@ class CounterStatefulPage extends StatefulWidget {
 
 class _CounterStatefulPageState extends State<CounterStatefulPage> {
   int counter = 0;
-
+  String errorMessage = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,10 +18,13 @@ class _CounterStatefulPageState extends State<CounterStatefulPage> {
         title: const Text("Counter Stateful"),
       ),
       body: Center(
-        child: Text(
-          "Counter Value => $counter",
-          style: Theme.of(context).textTheme.headlineLarge,
-        ),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(
+            "Counter Value => $counter",
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
+          (errorMessage != "") ? Text(errorMessage) : const Text("")
+        ]),
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -30,7 +33,12 @@ class _CounterStatefulPageState extends State<CounterStatefulPage> {
             heroTag: "dec",
             onPressed: () {
               setState(() {
-                --counter;
+                if (counter > 0) {
+                  --counter;
+                  errorMessage = "";
+                } else {
+                  errorMessage = "error value < 0";
+                }
               });
             },
             child: const Icon(Icons.remove),
@@ -42,7 +50,12 @@ class _CounterStatefulPageState extends State<CounterStatefulPage> {
             heroTag: "inc",
             onPressed: () {
               setState(() {
-                ++counter;
+                if (counter < 10) {
+                  ++counter;
+                  errorMessage = "";
+                } else {
+                  errorMessage = "error value > 10";
+                }
               });
             },
             child: const Icon(Icons.add),
