@@ -1,3 +1,6 @@
+import 'package:enset_app/ui/pages/counter.bloc.page.dart';
+import 'package:enset_app/ui/pages/counter.stateful.page.dart';
+import 'package:enset_app/ui/pages/git.users.page.dart';
 import 'package:enset_app/ui/pages/home.page.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +28,11 @@ class RootView extends StatelessWidget {
       ),
       routes: {
         "/": (context) => const HomePage(),
+        "/counter1": (context) => const CounterStatefulPage(),
+        "/counter2": (context) => const CounterBlocPage(),
+        "/users": (context) => const GitUsersPage(),
       },
+      initialRoute: "/",
     );
   }
 }
