@@ -1,4 +1,3 @@
-import 'package:enset_app/ui/widget/main.drawer.widget.dart';
 import 'package:flutter/material.dart';
 
 class CounterBlocPage extends StatelessWidget {
@@ -7,7 +6,7 @@ class CounterBlocPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const MainDrawer(),
+      // drawer: const MainDrawer(), PAS BESOIN
       appBar: AppBar(
         title: const Text("Counter Bloc"),
       ),
