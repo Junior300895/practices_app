@@ -51,7 +51,9 @@ class CounterBlocPage extends StatelessWidget {
             },
             child: const Icon(Icons.remove),
           ),
-          const SizedBox(width: 10,),
+          const SizedBox(
+            width: 10,
+          ),
           FloatingActionButton(
             heroTag: "inc",
             onPressed: () {
