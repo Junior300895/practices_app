@@ -15,11 +15,11 @@ class ListUsers {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['total_count'] = totalCount;
-    _data['incomplete_results'] = incompleteResults;
-    _data['items'] = items.map((e)=>e.toJson()).toList();
-    return _data;
+    final data = <String, dynamic>{};
+    data['total_count'] = totalCount;
+    data['incomplete_results'] = incompleteResults;
+    data['items'] = items.map((e)=>e.toJson()).toList();
+    return data;
   }
 }
 
@@ -88,26 +88,26 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['login'] = login;
-    _data['id'] = id;
-    _data['node_id'] = nodeId;
-    _data['avatar_url'] = avatarUrl;
-    _data['gravatar_id'] = gravatarId;
-    _data['url'] = url;
-    _data['html_url'] = htmlUrl;
-    _data['followers_url'] = followersUrl;
-    _data['following_url'] = followingUrl;
-    _data['gists_url'] = gistsUrl;
-    _data['starred_url'] = starredUrl;
-    _data['subscriptions_url'] = subscriptionsUrl;
-    _data['organizations_url'] = organizationsUrl;
-    _data['repos_url'] = reposUrl;
-    _data['events_url'] = eventsUrl;
-    _data['received_events_url'] = receivedEventsUrl;
-    _data['type'] = type;
-    _data['site_admin'] = siteAdmin;
-    _data['score'] = score;
-    return _data;
+    final data = <String, dynamic>{};
+    data['login'] = login;
+    data['id'] = id;
+    data['node_id'] = nodeId;
+    data['avatar_url'] = avatarUrl;
+    data['gravatar_id'] = gravatarId;
+    data['url'] = url;
+    data['html_url'] = htmlUrl;
+    data['followers_url'] = followersUrl;
+    data['following_url'] = followingUrl;
+    data['gists_url'] = gistsUrl;
+    data['starred_url'] = starredUrl;
+    data['subscriptions_url'] = subscriptionsUrl;
+    data['organizations_url'] = organizationsUrl;
+    data['repos_url'] = reposUrl;
+    data['events_url'] = eventsUrl;
+    data['received_events_url'] = receivedEventsUrl;
+    data['type'] = type;
+    data['site_admin'] = siteAdmin;
+    data['score'] = score;
+    return data;
   }
 }
