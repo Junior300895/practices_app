@@ -38,7 +38,7 @@ class GitUsersPage extends StatelessWidget {
                       context.read<UsersBloc>().add(SearchUsersEvent(
                           keywoard: searchTextController.text));
                     },
-                    icon: Icon(Icons.search),
+                    icon: const Icon(Icons.search),
                   )
                 ],
               ),
@@ -69,10 +69,36 @@ class GitUsersPage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return ListTile(
                           title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(state.listUsers.items[index].login)
+                              Row(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 25,
+                                    backgroundImage: NetworkImage(
+                                        state.listUsers.items[index].avatarUrl),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    state.listUsers.items[index].login,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge,
+                                  ),
+                                ],
+                              ),
+                              CircleAvatar(
+                                child: Text(
+                                    "${state.listUsers.items[index].score}"),
+                              )
                             ],
                           ),
+                          // trailing: CircleAvatar(
+                          //   child:
+                          //       Text("${state.listUsers.items[index].score}"),
+                          // ),
                         );
                       },
                       separatorBuilder: (context, index) {
