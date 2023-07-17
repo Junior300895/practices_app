@@ -1,4 +1,5 @@
 import 'package:enset_app/bloc/users.bloc.dart';
+import 'package:enset_app/ui/pages/git.users.repositories.page.dart';
 import 'package:enset_app/ui/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -117,6 +118,13 @@ class GitUsersPage extends StatelessWidget {
                                 )
                               ],
                             ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => GitRepositories(
+                                          user: state.users[index])));
+                            },
                             // trailing: CircleAvatar(
                             //   child:
                             //       Text("${state.listUsers.items[index].score}"),
